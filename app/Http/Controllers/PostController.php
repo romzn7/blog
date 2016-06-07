@@ -36,7 +36,7 @@ class PostController extends Controller
     }
 
     public function getCreatePost(){
-        $category = Category::all();
+        $category = Category::lists('name', 'id');
         return view('admin.blog.create_post', compact('category'));
     }
 
@@ -84,10 +84,11 @@ class PostController extends Controller
 
     }
     private function shortenText($text, $words_count){
-        if(str_word_count($text, 0) > $words_count){
-            $words = str_word_count($text, 2);
-            $pos = array_keys($words);
-            $text = substr($text, 0, $pos[$words_count]). "......";
+//        $count = strlen($text);
+//        var_dump($text);
+//        dd($count);
+        if(strlen($text) > $words_count){
+            $text = substr($text, 0, $words_count). "......";
         }
         return $text;
     }

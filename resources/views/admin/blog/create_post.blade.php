@@ -43,8 +43,8 @@
 		    		</div>
 
 		    		<div class='form-group'>
-		    			{!! Form::label('category_select', 'Category') !!}		    			
-		    			{!! Form::select('category_select', array('dummy' => 'Dummy Category'), null, array('class' => 'form-control')) !!}
+		    			{!! Form::label('category_select', 'Category') !!}
+		    			{{Form::select('category_select', $category, null, array('class' => 'form-control'))}}
 		    			<!-- {!! Form::select('category_select', array('$category->id[0]' => '$category->name[0]'), null, array('class' => 'form-control')) !!} -->
 		    		</div>
 
